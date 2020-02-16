@@ -1,0 +1,19 @@
+{% extends "tracker/base.html" %}
+{% block content %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <a class="mr-2" href="#">{{ object.player }}</a>
+		      <small class="text-muted">{{ object.date|date:"F d, Y" }}</small>
+		    </div>
+		    <h2 class="article-title">{{ object.deck }} -- {{ object.record }}</h2>
+		    <p class="article-content">{{ object.mformat }}</p>
+		  </div>
+		</article>
+		{% if object.player == user %}
+			<div>
+				<a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'league-update' object.id %}">Edit</a>
+				<a class="btn btn-danger btn-sn mt-1 mb-1" href="{% url 'league-delete' object.id %}">Delete</a>		      	
+			</div>
+		{% endif %}
+{% endblock content %}
