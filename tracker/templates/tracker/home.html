@@ -1,14 +1,14 @@
 {% extends "tracker/base.html" %}
 {% block content %}
-	{% for league in leagues %}
+	{% for match in matches %}
 		<article class="media content-section">
 		  <div class="media-body">
 		    <div class="article-metadata">
-		      <a class="mr-2" href="#">{{ league.player }}</a>
-		      <small class="text-muted">{{ league.date|date:"F d, Y" }}</small>
+		      <a class="mr-2" href="#">{{ match.player }}</a>
+		      <small class="text-muted">{{ match.date|date:"F d, Y" }}</small>
 		    </div>
-		    <h2><a class="article-title" href="{% url 'league-detail' league.id %}">{{ league.deck }} -- {{ league.record }}</a></h2>
-		    <p class="article-content">{{ league.mformat }}</p>
+		    <h2><a class="article-title" href="{% url 'match-detail' match.id %}">{{ match.deck }} -- {{ match.record }}</a></h2>
+		    <p class="article-content">{{ match.mformat }}</p>
 		  </div>
 		</article>
 	{% endfor %}

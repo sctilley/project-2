@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import League
+from .models import Deck, Match
 
-admin.site.register(League)
+admin.site.register(Deck)
+admin.site.register(Match)
